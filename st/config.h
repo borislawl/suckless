@@ -1,0 +1,1 @@
+/home/hoho/.dotfiles/config/suckless.conf/st.config.h
