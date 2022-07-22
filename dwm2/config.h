@@ -109,7 +109,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, NULL };
 //static const char *dmenucmd[] = { "rofi -show drun", NULL };
 static const char *termcmd[]  = { "st", NULL };
-static const char scratchpadname[] = "scratchpad";
+static const char scratchpadname[] = "sp";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
 static const char *browcmd[]  = { "qutebrowser", NULL };
 
@@ -130,7 +130,7 @@ static Key keys[] = {
       /* screenshot: pacman -S scrot */
     {0,                 XK_Print,                       spawn,  SHCMD("scrot scrot_%Y-%m-%d-%T_$wx$h.png") },
       /* dmenu scripts */
-    { MODKEY,                       XK_b,	   spawn,           SHCMD("~/.bin/bmenu") },
+    { MODKEY,                       XK_b,      spawn,           SHCMD("~/.bin/bmenu") },
     { MODKEY|ShiftMask,             XK_e,      spawn,           SHCMD("~/.bin/pmenu") },
     { MODKEY          ,             XK_x,      spawn,           SHCMD("~/.bin/favmenu") },
       /* ncmpcpp */
@@ -189,15 +189,16 @@ static Key keys[] = {
     { Mod1Mask|Mod4Mask|ShiftMask,    XK_9,      incrovgaps,     {.i = -1 } },
     { Mod1Mask|Mod4Mask,              XK_0,      togglegaps,     {0} },
     { Mod1Mask|Mod4Mask|ShiftMask,    XK_0,      defaultgaps,    {0} },
-        TAGKEYS(                        XK_1,                      0)
-	TAGKEYS(                        XK_2,                      1)
-	TAGKEYS(                        XK_3,                      2)
-	TAGKEYS(                        XK_4,                      3)
-	TAGKEYS(                        XK_5,                      4)
-	TAGKEYS(                        XK_6,                      5)
-	TAGKEYS(                        XK_7,                      6)
-	TAGKEYS(                        XK_8,                      7)
-	TAGKEYS(                        XK_9,                      8)
+    { MODKEY|ShiftMask,               XK_r,      quit,           {0} },
+    TAGKEYS(                        XK_1,                      0)
+    TAGKEYS(                        XK_2,                      1)
+    TAGKEYS(                        XK_3,                      2)
+    TAGKEYS(                        XK_4,                      3)
+    TAGKEYS(                        XK_5,                      4)
+    TAGKEYS(                        XK_6,                      5)
+    TAGKEYS(                        XK_7,                      6)
+    TAGKEYS(                        XK_8,                      7)
+    TAGKEYS(                        XK_9,                      8)
 };
 
 /* button definitions */
